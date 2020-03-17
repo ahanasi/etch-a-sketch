@@ -7,8 +7,13 @@ header{
    text-align: center;
 }
 
+.main-content{
+  text-align: center;
+  
+}
+
 .grid-container {
-    display: grid;
+    display: inline-grid;
     width: 500px;
     height: 500px;
     border: 1px solid black;
@@ -24,6 +29,6 @@ header{
     background-color: pink;
   }
 
-  
+
 
 
