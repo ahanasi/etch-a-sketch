@@ -11,8 +11,6 @@ header{
     display: grid;
     width: 500px;
     height: 500px;
-    justify-content: center;
-    align-content: center;
     border: 1px solid black;
     grid-template-columns: repeat(var(--colNum), 1fr);
     grid-template-rows: repeat(var(--colNum), 1fr);
@@ -20,5 +18,12 @@ header{
 
 .grid-item {
     border:1px solid black;
-    
   }
+
+  .grid-item:hover::after{
+    background-color: pink;
+  }
+
+  
+
+

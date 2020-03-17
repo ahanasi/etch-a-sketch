@@ -11,3 +11,14 @@ while (i<Math.pow(gridSize,2)){
     gridContainer.append(grid);
     i++; 
 }
+
+const boxes = document.querySelectorAll(".grid-item");
+
+boxes.forEach(box => {
+    box.addEventListener("mouseleave", (e) => {
+        e.target.style.backgroundColor = "pink";
+    });
+    box.addEventListener("mouseover", (e) => {
+        e.target.style.backgroundColor = "pink";
+    });
+});
