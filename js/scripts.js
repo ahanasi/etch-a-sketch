@@ -1,10 +1,16 @@
 const gridContainer = document.querySelector(".grid-container");
 const boxes = document.getElementById("sketchpad").childNodes;
 const reset = document.getElementById("reset");
-
+const randomColor = document.getElementById("random");
+const blackColor = document.getElementById("black");
+const fadeColor = document.getElementById("fade");
 
 let gridSize = 10;
+let isRandom = false;
 
+randomColor.onclick = function(){
+    isRandom = true;
+};
 
 createGrid();
 
@@ -13,7 +19,8 @@ reset.addEventListener('click', () => {
     clearGrid();
     gridSize = +prompt("How many squares per side for the new grid?", "16");
     createGrid();
-})
+});
+
 
 function createGrid(){
 
@@ -32,19 +39,15 @@ function createGrid(){
 
 }
 
-function colorGrid(){
 
-    boxes.forEach(box => {
-
-        let boxColor = generateRandomColor();
-
-        box.addEventListener("mouseleave", (e) => {
-            e.target.style.backgroundColor = boxColor;
+function colorGrid(){ 
+    
+        boxes.forEach(box => {
+            boxEvents(box, generateRandomColor());
         });
-        box.addEventListener("mouseover", (e) => {
-            e.target.style.backgroundColor = boxColor;
-        });
-    });
+    
+       
+        
 }
 
 function clearGrid(){
@@ -57,6 +60,19 @@ function generateRandomColor(){
     let randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
     return randomColor;
 }
+
+function boxEvents(gridBox, color){
+    gridBox.addEventListener("mouseleave", (e) => {
+        e.target.style.backgroundColor = color;
+    });
+    gridBox.addEventListener("mouseover", (e) => {
+        e.target.style.backgroundColor = color;
+        console.log(e.target.style.opacity);
+    });
+
+}
+
+
 
 
 
