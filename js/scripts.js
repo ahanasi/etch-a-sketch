@@ -2,10 +2,10 @@ const gridContainer = document.querySelector(".grid-container");
 const boxes = document.getElementById("sketchpad").childNodes;
 const reset = document.getElementById("reset");
 
+
 let gridSize = 10;
 
 createGrid();
-colorGrid();
 
 reset.addEventListener('click', () => {
     
@@ -32,12 +32,18 @@ function createGrid(){
 }
 
 function colorGrid(){
+
+    
+
     boxes.forEach(box => {
+
+        let randomCol = generateRandomColor();
+
         box.addEventListener("mouseleave", (e) => {
-            e.target.style.backgroundColor = "pink";
+            e.target.style.backgroundColor = randomCol;
         });
         box.addEventListener("mouseover", (e) => {
-            e.target.style.backgroundColor = "pink";
+            e.target.style.backgroundColor = randomCol;
         });
     });
 }
@@ -46,6 +52,11 @@ function clearGrid(){
     while (gridContainer.lastElementChild) {
         gridContainer.removeChild(gridContainer.lastElementChild);
       }
+}
+
+function generateRandomColor(){
+    let randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    return randomColor;
 }
 
 
