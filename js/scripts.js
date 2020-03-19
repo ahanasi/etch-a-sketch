@@ -58,6 +58,7 @@ function boxEvents(gridBox, color){
 let gridSize = 16;
 createGrid();
 
+//Reset grid
 reset.addEventListener('click', () => {
     
     clearGrid();

@@ -11,17 +11,11 @@
    width: 50vw;;
 }
 
-h1.heading{
-  float: center;
-}
-
-
 
 .main-content{
   text-align: center;
   
 }
-
 
 .grid-container {
     display: inline-grid;
@@ -33,11 +27,7 @@ h1.heading{
 }
 
 .grid-item {
-    border:1px solid black;
-  }
-
-  .grid-item:hover::after{
-    background-color: pink;
+    border: 1px solid #0000002e;
   }
 
 
