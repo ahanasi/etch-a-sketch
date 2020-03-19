@@ -5,6 +5,7 @@ const reset = document.getElementById("reset");
 
 let gridSize = 10;
 
+
 createGrid();
 
 reset.addEventListener('click', () => {
@@ -33,17 +34,15 @@ function createGrid(){
 
 function colorGrid(){
 
-    
-
     boxes.forEach(box => {
 
-        let randomCol = generateRandomColor();
+        let boxColor = generateRandomColor();
 
         box.addEventListener("mouseleave", (e) => {
-            e.target.style.backgroundColor = randomCol;
+            e.target.style.backgroundColor = boxColor;
         });
         box.addEventListener("mouseover", (e) => {
-            e.target.style.backgroundColor = randomCol;
+            e.target.style.backgroundColor = boxColor;
         });
     });
 }
