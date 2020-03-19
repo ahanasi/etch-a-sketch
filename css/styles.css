@@ -3,14 +3,25 @@
     --rowNum: 0;
   }
 
-header{
-   text-align: center;
+.heading{
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+   margin: auto;
+   width: 50vw;;
 }
+
+h1.heading{
+  float: center;
+}
+
+
 
 .main-content{
   text-align: center;
   
 }
+
 
 .grid-container {
     display: inline-grid;
