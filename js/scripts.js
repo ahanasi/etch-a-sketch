@@ -12,7 +12,6 @@ reset.addEventListener('click', () => {
     clearGrid();
     gridSize = +prompt("How many squares per side for the new grid?", "16");
     createGrid();
-    colorGrid();
 })
 
 function createGrid(){
@@ -27,6 +26,8 @@ function createGrid(){
         gridContainer.append(grid);
         i++; 
     }
+
+    colorGrid();
 
 }
 
