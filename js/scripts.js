@@ -1,16 +1,9 @@
 const gridContainer = document.querySelector(".grid-container");
 const boxes = document.getElementById("sketchpad").childNodes;
 const reset = document.getElementById("reset");
-const randomColor = document.getElementById("random");
-const blackColor = document.getElementById("black");
-const fadeColor = document.getElementById("fade");
 
 let gridSize = 10;
-let isRandom = false;
-
-randomColor.onclick = function(){
-    isRandom = true;
-};
+let bright = "100";
 
 createGrid();
 
@@ -35,19 +28,16 @@ function createGrid(){
         i++; 
     }
 
-    colorGrid();
+    boxes.forEach(box => {
+        colorGrid(box);
+    });
+    
 
 }
 
 
-function colorGrid(){ 
-    
-        boxes.forEach(box => {
-            boxEvents(box, generateRandomColor());
-        });
-    
-       
-        
+function colorGrid(box){     
+    boxEvents(box, generateRandomColor());
 }
 
 function clearGrid(){
@@ -62,15 +52,24 @@ function generateRandomColor(){
 }
 
 function boxEvents(gridBox, color){
+
+    let brightVal = 1.1;
+    
     gridBox.addEventListener("mouseleave", (e) => {
         e.target.style.backgroundColor = color;
+        e.target.style.filter = `brightness(${(brightVal)})`;
+        
     });
     gridBox.addEventListener("mouseover", (e) => {
         e.target.style.backgroundColor = color;
-        console.log(e.target.style.opacity);
-    });
+        e.target.style.filter = `brightness(${(brightVal-=0.1)})`;
+    }); 
+        
+    }
 
-}
+
+    
+
 
 
 
