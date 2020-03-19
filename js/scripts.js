@@ -2,19 +2,6 @@ const gridContainer = document.querySelector(".grid-container");
 const boxes = document.getElementById("sketchpad").childNodes;
 const reset = document.getElementById("reset");
 
-let gridSize = 10;
-let bright = "100";
-
-createGrid();
-
-reset.addEventListener('click', () => {
-    
-    clearGrid();
-    gridSize = +prompt("How many squares per side for the new grid?", "16");
-    createGrid();
-});
-
-
 function createGrid(){
 
     document.documentElement.style.setProperty("--colNum", gridSize);
@@ -34,7 +21,6 @@ function createGrid(){
     
 
 }
-
 
 function colorGrid(box){     
     boxEvents(box, generateRandomColor());
@@ -58,14 +44,33 @@ function boxEvents(gridBox, color){
     gridBox.addEventListener("mouseleave", (e) => {
         e.target.style.backgroundColor = color;
         e.target.style.filter = `brightness(${(brightVal)})`;
-        
     });
+
     gridBox.addEventListener("mouseover", (e) => {
         e.target.style.backgroundColor = color;
         e.target.style.filter = `brightness(${(brightVal-=0.1)})`;
     }); 
         
+}
+
+
+//Initialize Grid
+let gridSize = 16;
+createGrid();
+
+reset.addEventListener('click', () => {
+    
+    clearGrid();
+
+    do {
+        gridSize = +prompt("How many squares per side for the new grid?", "16");
     }
+    while(gridSize == "" || isNaN(gridSize));
+    
+    createGrid();
+});
+
+
 
 
     
